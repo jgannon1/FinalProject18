@@ -1,3 +1,5 @@
+import random
+
 class Card:
 
     def __init__(self, suit, name):
@@ -24,3 +26,30 @@ for suit in ['spades', 'diamonds', 'hearts', 'clubs']:
 print(deck)
 for card in deck:
     print(card.name, card.value)
+
+def evaluate_winner(dealer_total, player_total):
+    """Determines a winner between the dealer and player"""
+    if dealer_total >= player_total and < 21:
+        print(f"House wins! Dealer has {dealer_total} and you have {player_total}")
+    else:
+        print(f"You win! Dealer has {dealer_total} and you have {player_total}")
+
+def draw_card():
+    NEED TO FIGURE OUT HOW TO DRAW A CARD FROM THE DECK DOES THE CLASS WORK THE SAME WAY A LIST DOES? (might have to change where we use the classes, i hate myself -_-)
+
+def dealer_total():
+    """Evaluates the dealer's hand"""
+    draw_card() x2
+    current_sum = card1 + card2
+    if current_sum <= 14:
+        print(f"Dealer currently has {current_sum}, dealer hits.")
+        draw_Card()
+    else:
+        print(f"Dealer stay at {current_sum}.")
+    return current_sum
+
+def player_total():
+        """Evaluates player's hand"""
+
+
+
