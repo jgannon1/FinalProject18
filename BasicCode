@@ -23,6 +23,13 @@ for suit in ['spades', 'diamonds', 'hearts', 'clubs']:
         print(f"{name} of {suit}")
         deck.append(Card(suit, name))
 
+player = []
+
+for i in range(cards_to_draw):
+    drawn = random.choice(deck)
+    deck.remove(drawn)
+    player.append(drawn)
+
 print(deck)
 for card in deck:
     print(card.name, card.value)
@@ -50,6 +57,21 @@ def dealer_total():
 
 def player_total():
         """Evaluates player's hand"""
+        draw_card() x2
+        current_sum = card1 + card2
+        if current_sum < 21:
+            player_choice = lower.input(f"You are currently at {current_sum} would you like to hit or stay?")
+            if player_choice = "hit":
+                draw_card()
+                current_sum_new = current_cum = card3
+            else:
+                print(f"Your hand is {current_sum}.")
+        elif current_sum = 21:
+            print(f"BlackJack! You win!")
+        else:
+            print(f"Sorry you lose your hand is {current_sum}>")
+        return current_sum
+
 
 
 
