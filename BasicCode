@@ -24,53 +24,65 @@ for suit in ['spades', 'diamonds', 'hearts', 'clubs']:
         deck.append(Card(suit, name))
 
 player = []
+player_value = 0
 
-for i in range(cards_to_draw):
-    drawn = random.choice(deck)
-    deck.remove(drawn)
-    player.append(drawn)
+def get_player_sum(hand):
+    player_value = 0
+    for n in range (len(player)):
+        player_value += player[n].get_value(player[n].name)
+    return player_value
 
-print(deck)
-for card in deck:
-    print(card.name, card.value)
+def player_draw(cards_to_draw):
+    global player
+    global deck
 
-def evaluate_winner(dealer_total, player_total):
-    """Determines a winner between the dealer and player"""
-    if dealer_total >= player_total and < 21:
-        print(f"House wins! Dealer has {dealer_total} and you have {player_total}")
-    else:
-        print(f"You win! Dealer has {dealer_total} and you have {player_total}")
+    for i in range (cards_to_draw):
+        drawn = random.choice(deck)
+        deck.remove(drawn)
+        player.append(drawn
+    print(f"You currently have {player}")
 
-def draw_card():
-    NEED TO FIGURE OUT HOW TO DRAW A CARD FROM THE DECK DOES THE CLASS WORK THE SAME WAY A LIST DOES? (might have to change where we use the classes, i hate myself -_-)
-
-def dealer_total():
-    """Evaluates the dealer's hand"""
-    draw_card() x2
-    current_sum = card1 + card2
-    if current_sum <= 14:
-        print(f"Dealer currently has {current_sum}, dealer hits.")
-        draw_Card()
-    else:
-        print(f"Dealer stay at {current_sum}.")
-    return current_sum
-
-def player_total():
-        """Evaluates player's hand"""
-        draw_card() x2
-        current_sum = card1 + card2
-        if current_sum < 21:
-            player_choice = lower.input(f"You are currently at {current_sum} would you like to hit or stay?")
-            if player_choice = "hit":
-                draw_card()
-                current_sum_new = current_cum = card3
+    while get_player_sum(player) < 21:
+        choice = input(f"You only have {get_player_sum(player)}, do you want to hit?")
+        if choice == 'hit':
+            player_draw(1)
+            if get_player_sum(player) == 21:
+                print(f"BlackJack! You win!")
             else:
-                print(f"Your hand is {current_sum}.")
-        elif current_sum = 21:
-            print(f"BlackJack! You win!")
+                print(f"Your hand value is {get_player_sum(player)} and you decided to stay, good luck against the dealer!")
+            break
+
+dealer_value = 0
+dealer = []
+
+def get_dealer_sum(hand):
+    dealer_value = 0
+    for n in range(len(dealer)):
+        dealer_value += dealer[n].get_value(dealer[n].name)
+    return dealer_value
+
+def dealer_draw(cards_to_draw):
+    global dealer
+    global deck
+
+    for i in range(cards_to_draw):
+        drawn = random.choice(deck)
+        edck.remove(drawn)
+        dealer.append(drawn)
+    print(f"The dealer currently has {dealer}.")
+
+    while get_dealer_sum(dealer) < 14:
+        print(f"Dealer only has {get_dealer_sum(dealer)}, so dealer hits.")
+        dealer_draw(1)
+        if get_dealer_sum(dealer) >= 14 and get_dealer_sum(dealer) < 21:
+            print(f"Dealer currently has {get_dealer_sum(dealer)}, so dealer stays.")
         else:
-            print(f"Sorry you lose your hand is {current_sum}>")
-        return current_sum
+            print(f"Dealer busts, you win!")
+
+
+player_draw(2)
+dealer_draw(2)
+
 
 
 
