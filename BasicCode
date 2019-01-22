@@ -48,9 +48,9 @@ def player_draw(cards_to_draw):
             player_draw(1)
             if get_player_sum(player) == 21:
                 print(f"BlackJack! You win!")
-            else:
-                print(f"Your hand value is {get_player_sum(player)} and you decided to stay, good luck against the dealer!")
-            break
+        else:
+            print(f"Your hand value is {get_player_sum(player)} and you decided to stay, good luck against the dealer!")
+        break
 
 dealer_value = 0
 dealer = []
@@ -80,9 +80,20 @@ def dealer_draw(cards_to_draw):
             print(f"Dealer busts, you win!")
 
 
+def evaluate_winner():
+    if get_player_sum(player) > get_dealer_sum(dealer) and get_player_sum(player) < 21:
+        print(f"You win! {get_player_sum(player)} beats {get_dealer_sum(dealer)}.")
+    elif get_player_sum(player) > 21:
+        print(f"You Busted! Dealer Wins!")
+    elif get_dealer_sum(dealer) > 21:
+        print(f"Dealer Busted! You Win!")
+    else:
+        print(f"Dealer wins! {get_dealer_Sum(dealer)} beats {get_player_sum(player)}.")
+
+
 player_draw(2)
 dealer_draw(2)
-
+evaluate_winner()
 
 
 
