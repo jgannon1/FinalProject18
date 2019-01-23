@@ -1,9 +1,1 @@
-# Intro to Programming Final Project - Fall 2018
-
-* Project details are in description.md
-* Replace the content of this file with your own info about your project before the due date
-* Don't forget to fill out the [Project Proposal Form](https://airtable.com/shrrdA41unoBvi6Ki) before break.
-
-## Setting Up Your Repo
-
-On the GitHub page for this repository, click the "Fork" button. This will create your own copy of this repository, linked to my original. Use the same cloning method we used before to clone the repository to your PythonAnywhere account
+This game is a slight variation on the conventional game of "BlackJack". The only differences between traditional BlakJack and this game is the values of face cards and aces. Ace, Jack, Queen, and King are equal to 1, 11, 12, and 13 respectively. In addition, like traditional BlackJack the dealer hits on 13, and if the player busts the dealer automatically wins, similarly, if the dealer and player ties, the dealer wins.
