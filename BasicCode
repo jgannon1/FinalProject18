@@ -95,7 +95,7 @@ def evaluate_winner():
     elif get_dealer_sum(dealer) > 21:
         print(f"Dealer Busted! You Win!")
     else:
-        print(f"Dealer wins! {get_dealer_Sum(dealer)} beats {get_player_sum(player)}.")
+        print(f"Dealer wins! {get_dealer_sum(dealer)} beats {get_player_sum(player)}.")
 
 
 player_draw(2)
