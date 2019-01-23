@@ -46,8 +46,6 @@ def player_draw(cards_to_draw):
         choice = input(f"You only have {get_player_sum(player)}, do you want to hit?")
         if choice == 'hit':
             player_draw(1)
-            if get_player_sum(player) == 21:
-                print(f"BlackJack! You win!")
         else:
             print(f"Your hand value is {get_player_sum(player)} and you decided to stay, good luck against the dealer!")
         break
@@ -67,17 +65,14 @@ def dealer_draw(cards_to_draw):
 
     for i in range(cards_to_draw):
         drawn = random.choice(deck)
-        edck.remove(drawn)
+        deck.remove(drawn)
         dealer.append(drawn)
     print(f"The dealer currently has {dealer}.")
 
     while get_dealer_sum(dealer) < 14:
         print(f"Dealer only has {get_dealer_sum(dealer)}, so dealer hits.")
         dealer_draw(1)
-        if get_dealer_sum(dealer) >= 14 and get_dealer_sum(dealer) < 21:
-            print(f"Dealer currently has {get_dealer_sum(dealer)}, so dealer stays.")
-        else:
-            print(f"Dealer busts, you win!")
+        break
 
 
 def evaluate_winner():
@@ -92,7 +87,15 @@ def evaluate_winner():
 
 
 player_draw(2)
+if get_player_sum(player) == 21:
+    print(f"BlackJack! You win!")
+
 dealer_draw(2)
+if get_dealer_sum(dealer) >= 14 and get_dealer_sum(dealer) < 21:
+    print(f"Dealer currently has {get_dealer_sum(dealer)}, so dealer stays.")
+else:
+    print(f"Dealer busts, you win!")
+
 evaluate_winner()
 
 
