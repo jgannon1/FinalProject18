@@ -30,7 +30,7 @@ player = []
 player_value = 0
 
 def get_player_sum(hand):
-    """Adds up the cards in the player's hand to get the player total
+    """Adds up the cards in the player's hand to get the player total"""
     player_value = 0
     for n in range (len(player)):
         player_value += player[n].get_value(player[n].name)
@@ -44,9 +44,9 @@ def player_draw(cards_to_draw):
     for i in range (cards_to_draw):
         drawn = random.choice(deck)
         deck.remove(drawn)
-        player.append(drawn
+        player.append(drawn)
         #draws a card from the deck, which also removes it and adds it to the player's hand
-    print(f"You currently have {player}")
+    print(f"You currently have {player}.")
 
     while get_player_sum(player) < 21:
         choice = input(f"You only have {get_player_sum(player)}, do you want to hit?")
@@ -61,7 +61,7 @@ dealer_value = 0
 dealer = []
 
 def get_dealer_sum(hand):
-    """Adds up the cards in the dealer's hand
+    """Adds up the cards in the dealer's hand"""
     dealer_value = 0
     for n in range(len(dealer)):
         dealer_value += dealer[n].get_value(dealer[n].name)
@@ -87,7 +87,7 @@ def dealer_draw(cards_to_draw):
 
 
 def evaluate_winner():
-    """Evaluates who wins when comparing the values of the two hands
+    """Something something something"""
     if get_player_sum(player) > get_dealer_sum(dealer) and get_player_sum(player) < 21:
         print(f"You win! {get_player_sum(player)} beats {get_dealer_sum(dealer)}.")
     elif get_player_sum(player) > 21:
@@ -113,8 +113,5 @@ else:
     print(f"Dealer busts, you win!")
     #needed to be put here so that the function does not go through this part of the loop every time recursive is used in the function
 
+
 evaluate_winner()
-
-
-
-
